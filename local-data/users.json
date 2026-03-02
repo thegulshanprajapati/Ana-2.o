@@ -1,0 +1,57 @@
+[
+  {
+    "id": "2fc4209d-353d-4f5c-b609-5a9d308ec48a",
+    "email": "gulshan@my.ana",
+    "displayName": "Gulshan ",
+    "photoURL": null,
+    "phone": "+918709131702",
+    "plan": "Enterprise",
+    "password": "Gulshan",
+    "metadata": {
+      "creationTime": "2025-10-06T08:26:59.024Z",
+      "lastSignInTime": "2025-10-11T17:09:22.074Z"
+    }
+  },
+  {
+    "id": "e289d2af-fe22-4ac0-8547-f01060039ac7",
+    "email": "support@my.ana",
+    "displayName": "Admin",
+    "photoURL": null,
+    "phone": "+918709131702",
+    "plan": "Enterprise",
+    "password": "Ana@01",
+    "metadata": {
+      "creationTime": "2025-10-06T08:41:59.614Z",
+      "lastSignInTime": "2026-02-25T03:15:12.122Z"
+    },
+    "character": "Criminal"
+  },
+  {
+    "id": "e8440e5f-20d7-4acf-beb7-c0aa6b3595db",
+    "email": "test1@my.ana",
+    "displayName": "Demo",
+    "photoURL": null,
+    "phone": "+911234567890",
+    "plan": "Free",
+    "password": "Test",
+    "metadata": {
+      "creationTime": "2025-10-06T17:13:46.780Z",
+      "lastSignInTime": "2025-10-06T17:13:46.780Z"
+    }
+  },
+  {
+    "id": "c73bbbd9-ddee-4dd4-b96a-c7eaa0d94c20",
+    "email": "12121hghg@my.ana",
+    "displayName": "Alexander",
+    "photoURL": null,
+    "phone": "+918709131702",
+    "gender": "male",
+    "plan": "Free",
+    "password": "Ana@01",
+    "metadata": {
+      "creationTime": "2025-10-12T10:32:02.553Z",
+      "lastSignInTime": "2025-10-12T12:52:27.796Z"
+    },
+    "character": "defaultt"
+  }
+]
