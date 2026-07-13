@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 96.1%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+
+    --community-bg-start: #f4f7ff;
+    --community-bg-end: #eef2ff;
+    --community-card-border: rgba(15, 23, 42, 0.14);
+    --community-card-bg: rgba(255, 255, 255, 0.82);
+    --community-card-hover: rgba(255, 255, 255, 0.96);
+    --community-surface: rgba(255, 255, 255, 0.78);
+    --community-text: #0f172a;
+    --community-muted: rgba(15, 23, 42, 0.66);
+    --community-noise-opacity: 0.06;
+    --community-accent-glow: 0 0 22px -2px hsl(var(--primary) / 0.32);
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%; /* Near-black */
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 8%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 349 83.3% 60.6%; /* Red Accent */
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 349 83.3% 60.6%;
+    --community-bg-start: #090d16;
+    --community-bg-end: #04070d;
+    --community-card-border: rgba(148, 163, 184, 0.28);
+    --community-card-bg: rgba(15, 23, 42, 0.52);
+    --community-card-hover: rgba(30, 41, 59, 0.68);
+    --community-surface: rgba(15, 23, 42, 0.56);
+    --community-text: #f8fafc;
+    --community-muted: rgba(226, 232, 240, 0.74);
+    --community-noise-opacity: 0.16;
+    --community-accent-glow: 0 0 22px -1px hsl(var(--primary) / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .prose pre {
+      @apply bg-transparent p-0 m-0;
+  }
+
+  .prose code {
+      @apply bg-muted-foreground/10 px-1 rounded-md;
+  }
+  
+  .prose pre code {
+      @apply bg-transparent p-0 rounded-none;
+  }
+}
+
+.community-background-noise {
+    position: relative;
+    color: var(--community-text);
+    background:
+      radial-gradient(120% 90% at 10% -10%, hsl(var(--primary) / 0.16), transparent 55%),
+      radial-gradient(110% 90% at 100% 0%, hsl(var(--ring) / 0.12), transparent 50%),
+      linear-gradient(180deg, var(--community-bg-start) 0%, var(--community-bg-end) 100%);
+}
+
+.community-background-noise::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(ellipse 80% 80% at 50% -20%, hsl(var(--primary) / 0.2), transparent),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4.5' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: soft-light;
+    opacity: var(--community-noise-opacity);
+    pointer-events: none;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@keyframes anaAmbientFlow {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(2%, 1%, 0) scale(1.08);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+    opacity: 0.45;
+  }
+}
+
+@keyframes anaSectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ana-app-shell {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  overflow-x: hidden;
+}
+
+.ana-ambient-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: -25vmax;
+  z-index: -1;
+  background:
+    radial-gradient(40% 35% at 20% 15%, hsl(var(--primary) / 0.12), transparent 70%),
+    radial-gradient(30% 25% at 85% 20%, hsl(var(--ring) / 0.12), transparent 75%),
+    radial-gradient(45% 40% at 55% 85%, hsl(var(--accent-foreground) / 0.08), transparent 78%);
+  filter: blur(36px);
+}
+
+.ana-page-shell {
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ana-ambient-layer {
+    animation: anaAmbientFlow 16s ease-in-out infinite;
+  }
+
+  .ana-page-shell main > * {
+    opacity: 0;
+    animation: anaSectionReveal 0.55s ease-out forwards;
+  }
+
+  .ana-page-shell main > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .ana-page-shell main > *:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+
+  .ana-page-shell main > *:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .ana-page-shell main > *:nth-child(4) {
+    animation-delay: 0.28s;
+  }
+}

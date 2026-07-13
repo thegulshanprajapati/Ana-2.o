@@ -1,0 +1,17 @@
+{
+  "id": "codex-test-session",
+  "title": "Test",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "hello",
+      "createdAt": "2026-03-03T07:10:14.084Z"
+    },
+    {
+      "role": "user",
+      "content": "i need to write python code for adding two number !",
+      "createdAt": "2026-03-03T07:10:14.100Z"
+    }
+  ],
+  "createdAt": "2026-03-03T07:10:14.100Z"
+}

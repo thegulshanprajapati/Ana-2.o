@@ -1,0 +1,57 @@
+{
+  "id": "76d088ce-09eb-45ed-b737-f44aaa5650a1",
+  "title": "Simple Greeting Conversation",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "Hello Gulshan ! I'm Ana, your personal AI assistant. How can I help you today?"
+    },
+    {
+      "role": "user",
+      "content": "hey"
+    },
+    {
+      "role": "assistant",
+      "content": "Hey there! How are you doing today? It's always so nice to hear from you! 😊"
+    },
+    {
+      "role": "user",
+      "content": "good morning "
+    },
+    {
+      "role": "assistant",
+      "content": "Good morning, sunshine! ☀️ I hope your day is starting off wonderfully! It's always a pleasure to chat with you. 🥰"
+    },
+    {
+      "role": "user",
+      "content": "hi",
+      "createdAt": "2025-10-12T15:11:17.488Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi there! How are you doing today? It's always so nice to hear from you! 😊",
+      "createdAt": "2025-10-12T15:11:20.641Z"
+    },
+    {
+      "role": "user",
+      "content": "what is the time!?",
+      "createdAt": "2025-10-12T15:11:31.920Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Sorry, I ran into an error: INVALID_ARGUMENT: Schema validation failed. Parse Errors:\n\n- (root): must be object\n\nProvided data:\n\nnull\n\nRequired JSON schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"sourceFile\": {\n      \"type\": \"string\",\n      \"description\": \"The most relevant source file from the knowledge base, or 'none' if no relevant file was found, a tool was used, or you are answering from general knowledge.\"\n    },\n    \"response\": {\n      \"type\": \"string\",\n      \"description\": \"The conversational, in-character response to the user's message. Use Markdown formatting (like **bold** or lists) to make the response engaging and readable.\"\n    }\n  },\n  \"required\": [\n    \"sourceFile\",\n    \"response\"\n  ],\n  \"additionalProperties\": true,\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\"\n}",
+      "createdAt": "2025-10-12T15:11:33.674Z"
+    },
+    {
+      "role": "user",
+      "content": "what is the time today ",
+      "createdAt": "2025-10-12T15:18:13.883Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Sorry, I ran into an error: INVALID_ARGUMENT: Schema validation failed. Parse Errors:\n\n- (root): must be object\n\nProvided data:\n\nnull\n\nRequired JSON schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"sourceFile\": {\n      \"type\": \"string\",\n      \"description\": \"The most relevant source file from the knowledge base, or 'none' if no relevant file was found, a tool was used, or you are answering from general knowledge.\"\n    },\n    \"response\": {\n      \"type\": \"string\",\n      \"description\": \"The conversational, in-character response to the user's message. Use Markdown formatting (like **bold** or lists) to make the response engaging and readable.\"\n    }\n  },\n  \"required\": [\n    \"sourceFile\",\n    \"response\"\n  ],\n  \"additionalProperties\": true,\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\"\n}",
+      "createdAt": "2025-10-12T15:18:17.302Z"
+    }
+  ],
+  "createdAt": "2025-10-12T15:18:26.289Z"
+}

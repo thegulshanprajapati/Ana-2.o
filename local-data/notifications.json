@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Welcome, Admin!",
+    "description": "You have the Enterprise Plan with full access. Features: Unlimited messages and 24/7 premium support.",
+    "userId": "e289d2af-fe22-4ac0-8547-f01060039ac7",
+    "id": "d7268554-4937-435b-9894-cc48755a86cf",
+    "createdAt": "2026-02-25T03:15:12.938Z"
+  },
+  {
+    "title": "Welcome, Admin!",
+    "description": "You have the एंटरप्राइज Plan with full access. Features: अनलिमिटेड संदेश and 24/7 प्रीमियम सपोर्ट.",
+    "userId": "e289d2af-fe22-4ac0-8547-f01060039ac7",
+    "id": "90ecd6ee-a7b5-492e-9a0a-7d4a89862198",
+    "createdAt": "2026-02-24T15:51:37.641Z"
+  },
+  {
+    "title": "your account Update ",
+    "description": "Hey we have upgraded your Account  from free to Enterprises!!",
+    "userId": "2fc4209d-353d-4f5c-b609-5a9d308ec48a",
+    "id": "10dc4e66-8776-4344-942e-81bb7485c741",
+    "createdAt": "2025-10-12T13:55:13.143Z"
+  },
+  {
+    "title": "Welcome, Alexander!",
+    "description": "You are on the Free Plan. Features: Har mahine 30 messages tak, Standard model access.",
+    "userId": "c73bbbd9-ddee-4dd4-b96a-c7eaa0d94c20",
+    "id": "c6a6a0a0-d01a-4dab-a350-f68b377fd888",
+    "createdAt": "2025-10-12T12:52:28.810Z"
+  }
+]

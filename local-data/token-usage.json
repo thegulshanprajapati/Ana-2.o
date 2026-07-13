@@ -1,0 +1,29 @@
+[
+  {
+    "userId": "anonymous",
+    "promptTokens": 3947,
+    "completionTokens": 113,
+    "totalTokens": 4060,
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "id": "6e19f620-5dad-4f23-994d-b0a0d4656cf8",
+    "createdAt": "2026-07-11T16:39:51.411Z"
+  },
+  {
+    "userId": "anonymous",
+    "promptTokens": 4040,
+    "completionTokens": 37,
+    "totalTokens": 4077,
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "id": "e6d0ac1e-475b-4648-8283-2951c0594e1f",
+    "createdAt": "2026-07-11T16:52:02.151Z"
+  },
+  {
+    "userId": "e289d2af-fe22-4ac0-8547-f01060039ac7",
+    "promptTokens": 5783,
+    "completionTokens": 79,
+    "totalTokens": 5862,
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "id": "f7c6aa25-e30e-4e6d-b4e5-90961d295752",
+    "createdAt": "2026-07-12T13:19:23.070Z"
+  }
+]

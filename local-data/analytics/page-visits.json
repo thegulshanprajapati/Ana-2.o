@@ -1,0 +1,74 @@
+[
+  {
+    "id": "4166aaf8-22bc-4d56-8f46-4050b166845a",
+    "path": "/chat",
+    "sessionId": "codex-test-session",
+    "userId": "e289d2af-fe22-4ac0-8547-f01060039ac7",
+    "visitorKey": "e289d2af-fe22-4ac0-8547-f01060039ac7",
+    "createdAt": "2026-03-03T07:10:40.171Z",
+    "dateKey": "2026-03-03"
+  },
+  {
+    "id": "9772f58a-0295-4b4e-875e-d9d729fcb0a9",
+    "path": "/chat",
+    "sessionId": "recheck-session",
+    "userId": "e289d2af-fe22-4ac0-8547-f01060039ac7",
+    "visitorKey": "e289d2af-fe22-4ac0-8547-f01060039ac7",
+    "createdAt": "2026-03-03T07:14:09.208Z",
+    "dateKey": "2026-03-03"
+  },
+  {
+    "id": "feac6249-813e-48e2-bfb9-12e9600397d9",
+    "path": "/",
+    "sessionId": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "userId": null,
+    "visitorKey": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "createdAt": "2026-07-11T16:20:09.874Z",
+    "dateKey": "2026-07-11"
+  },
+  {
+    "id": "cb73c646-ac77-4adc-ae19-47826beff487",
+    "path": "/",
+    "sessionId": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "userId": null,
+    "visitorKey": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "createdAt": "2026-07-11T16:24:14.454Z",
+    "dateKey": "2026-07-11"
+  },
+  {
+    "id": "a5b60445-bb01-405f-bf6f-074482fa8be6",
+    "path": "/chat",
+    "sessionId": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "userId": null,
+    "visitorKey": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "createdAt": "2026-07-11T16:24:27.069Z",
+    "dateKey": "2026-07-11"
+  },
+  {
+    "id": "fcde4eab-0fdf-4d4a-8545-1d1a8c317c33",
+    "path": "/chat",
+    "sessionId": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "userId": null,
+    "visitorKey": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "createdAt": "2026-07-11T16:29:06.035Z",
+    "dateKey": "2026-07-11"
+  },
+  {
+    "id": "a58f04f2-2514-42c1-b31d-0e25c41b3cad",
+    "path": "/chat",
+    "sessionId": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "userId": null,
+    "visitorKey": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "createdAt": "2026-07-11T16:39:16.683Z",
+    "dateKey": "2026-07-11"
+  },
+  {
+    "id": "dfc617c7-999d-4c20-aaa6-4863f985c321",
+    "path": "/login",
+    "sessionId": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "userId": null,
+    "visitorKey": "d9cf88e9-53d4-4b2c-ab83-7978ff4180b0",
+    "createdAt": "2026-07-11T16:53:55.487Z",
+    "dateKey": "2026-07-11"
+  }
+]

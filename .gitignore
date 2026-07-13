@@ -1,0 +1,66 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+out/
+target/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+admin-pannel/
+# Java
+*.class
+
+# C/C++
+*.o
+*.exe
+
+# Archives
+*.zip
+*.tar
+*.gz
+
+# Temporary files
+*.tmp
+*.temp
+
+# Next.js
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
