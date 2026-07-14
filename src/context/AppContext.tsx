@@ -451,7 +451,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const loginUser = async (credentials: Pick<any, 'email'|'password'>): Promise<boolean> => {
-    const userToLogin = await getUserByEmail(credentials.email);
+    const loginEmail = credentials.email.includes('@') 
+      ? credentials.email 
+      : `${credentials.email}@my.ana`;
+      
+    const userToLogin = await getUserByEmail(loginEmail);
     if(userToLogin && userToLogin.password === credentials.password) {
         sessionStorage.setItem('userId', userToLogin.id);
         await updateUserData(userToLogin);
