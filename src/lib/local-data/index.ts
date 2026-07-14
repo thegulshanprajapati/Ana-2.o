@@ -5,7 +5,9 @@ import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 import { getMongoDb, isMongoConfigured } from '@/lib/mongodb';
 
-const dataPath = path.join(process.cwd(), 'local-data');
+const dataPath = process.env.VERCEL
+  ? path.join('/tmp', 'local-data')
+  : path.join(process.cwd(), 'local-data');
 const usersFilePath = path.join(dataPath, 'users.json');
 const testimonialsFilePath = path.join(dataPath, 'testimonials.json');
 const notificationsFilePath = path.join(dataPath, 'notifications.json');
