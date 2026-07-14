@@ -7,6 +7,9 @@ import fsSync from 'fs';
 import { getMongoDb, isMongoConfigured } from '@/lib/mongodb';
 
 const getLocalDataPath = () => {
+  if (process.env.VERCEL) {
+    return path.join('/tmp', 'local-data');
+  }
   const currentPath = path.join(process.cwd(), 'local-data');
   if (fsSync.existsSync(currentPath)) {
     return currentPath;
@@ -27,7 +30,7 @@ const brainPath = path.join(dataPath, 'brain');
 import { getMongoClient } from '@/lib/mongodb';
 
 let useMongoBackend =
-  process.env.ANA_DATA_BACKEND === 'mongodb' || isMongoConfigured();
+  process.env.ANA_DATA_BACKEND === 'mongodb' || (!process.env.ANA_DATA_BACKEND && isMongoConfigured());
 
 if (useMongoBackend) {
   getMongoClient().catch((err) => {
