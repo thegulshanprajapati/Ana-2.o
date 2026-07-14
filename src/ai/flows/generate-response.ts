@@ -654,17 +654,7 @@ const clampResponseByLimits = (
 };
 
 const enforceMessageModeLength = (text: string, userMessage: string): string => {
-  const mode = getMessageMode(toSafeText(userMessage));
-  if (mode === 'long') {
-    return text;
-  }
-  if (mode === 'short') {
-    return clampResponseByLimits(text, 3, 240);
-  }
-  if (mode === 'argument') {
-    return clampResponseByLimits(text, 6, 520);
-  }
-  return clampResponseByLimits(text, 6, 700);
+  return text; // Return full response to ensure complete and well-organized answers
 };
 
 const getHumanFallback = (userMessage: string): string => {
