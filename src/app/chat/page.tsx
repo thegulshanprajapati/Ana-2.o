@@ -1271,24 +1271,24 @@ ${recentComments.length ? recentComments.join("\n") : "- none"}`;
         </Sidebar>
 
         <main className="flex flex-col max-h-screen w-full">
-             <header className="flex items-center justify-between px-6 border-b border-white/5 bg-zinc-950/60 dark:bg-black/40 backdrop-blur-xl h-16 shrink-0 shadow-sm shadow-primary/2">
+             <header className="flex items-center justify-between px-6 border-b border-zinc-200 dark:border-white/5 bg-white/70 dark:bg-black/40 backdrop-blur-xl h-16 shrink-0 shadow-sm dark:shadow-primary/2">
                 <div className="flex items-center gap-3">
-                    <SidebarTrigger className="hover:bg-white/5 transition-colors rounded-lg h-9 w-9" />
-                    <div className="relative p-1.5 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center">
-                        <BotIcon className="w-5 h-5 text-indigo-400 animate-pulse"/>
+                    <SidebarTrigger className="hover:bg-zinc-100 dark:hover:bg-white/5 text-zinc-700 dark:text-zinc-300 transition-colors rounded-lg h-9 w-9" />
+                    <div className="relative p-1.5 rounded-xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/5 flex items-center justify-center">
+                        <BotIcon className="w-5 h-5 text-indigo-500 dark:text-indigo-400 animate-pulse"/>
                         <span className="absolute -bottom-0.5 -right-0.5 flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                         </span>
                     </div>
                     <div className="flex flex-col">
-                        <h1 className="font-extrabold text-sm tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">{t('chat.ana_name')}</h1>
-                        <span className="text-[10px] text-emerald-400/80 font-semibold tracking-wider uppercase">Active Now</span>
+                        <h1 className="font-extrabold text-sm tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400">{t('chat.ana_name')}</h1>
+                        <span className="text-[10px] text-emerald-600 dark:text-emerald-400/80 font-semibold tracking-wider uppercase">Active Now</span>
                     </div>
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                    <Button variant="ghost" size="icon" onClick={toggleTheme} className="hover:bg-white/5 transition-colors rounded-lg h-9 w-9">
+                    <Button variant="ghost" size="icon" onClick={toggleTheme} className="hover:bg-zinc-100 dark:hover:bg-white/5 text-zinc-700 dark:text-zinc-300 transition-colors rounded-lg h-9 w-9">
                         <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                         <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                         <span className="sr-only">{t('theme.changer.aria')}</span>
@@ -1296,12 +1296,12 @@ ${recentComments.length ? recentComments.join("\n") : "- none"}`;
 
                     {isLoggedIn && (
                         <div className="relative">
-                        <Button variant="ghost" size="icon" onClick={handleNotifBellClick} className="hover:bg-white/5 transition-colors rounded-lg h-9 w-9">
+                        <Button variant="ghost" size="icon" onClick={handleNotifBellClick} className="hover:bg-zinc-100 dark:hover:bg-white/5 text-zinc-700 dark:text-zinc-300 transition-colors rounded-lg h-9 w-9">
                             <Bell className="h-4 w-4" />
                             <span className="sr-only">Notifications</span>
                         </Button>
                         {unreadCount > 0 && (
-                            <Badge variant="destructive" className="absolute -top-1 -right-1 h-4 w-4 justify-center items-center text-[9px] p-0 font-bold bg-blue-500 hover:bg-blue-600 text-white rounded-full border border-black">{unreadCount}</Badge>
+                            <Badge variant="destructive" className="absolute -top-1 -right-1 h-4 w-4 justify-center items-center text-[9px] p-0 font-bold bg-blue-500 hover:bg-blue-600 text-white rounded-full border border-black dark:border-zinc-950">{unreadCount}</Badge>
                         )}
                         </div>
                     )}
@@ -1309,11 +1309,11 @@ ${recentComments.length ? recentComments.join("\n") : "- none"}`;
                     {isLoggedIn ? (
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="flex items-center gap-2 hover:bg-white/5 transition-colors rounded-lg py-1.5 px-3 h-9">
-                            <User className="h-4 w-4" />
-                            <span className='hidden sm:inline font-semibold text-xs text-white/80'>{userName}</span>
+                        <Button variant="ghost" className="flex items-center gap-2 hover:bg-zinc-100 dark:hover:bg-white/5 text-zinc-800 dark:text-white/90 transition-colors rounded-lg py-1.5 px-3 h-9">
+                            <User className="h-4 w-4 text-zinc-750 dark:text-white/80" />
+                            <span className='hidden sm:inline font-semibold text-xs text-zinc-700 dark:text-white/80'>{userName}</span>
                             {userPlan === 'Business' && (
-                                <Badge variant="outline" className="gap-1 border-blue-500/30 bg-blue-500/5 text-blue-400 text-[10px] px-1.5 py-0.5 rounded-md">
+                                <Badge variant="outline" className="gap-1 border-blue-500/30 bg-blue-500/5 text-blue-500 text-[10px] px-1.5 py-0.5 rounded-md">
                                     <BadgeCheck className="h-3 w-3 fill-blue-500 text-blue-500" />
                                     <span className="hidden md:inline">Business</span>
                                 </Badge>

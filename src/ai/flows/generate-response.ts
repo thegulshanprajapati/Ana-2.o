@@ -544,54 +544,7 @@ const enforceCrossTurnNovelty = ({
   history: AppMessage[];
   languageCode: string;
 }): string => {
-  const safeResponse = toSafeText(response).trim();
-  if (!safeResponse) {
-    return safeResponse;
-  }
-  const naturalMode = isNaturalChatModeEnabled();
-
-  const safeUserMessage = toSafeText(userMessage);
-  if (isLeaveOrStopRequest(safeUserMessage) || isHostileMessage(safeUserMessage)) {
-    return getBoundaryReplyByLanguage(languageCode);
-  }
-  if (isIllegalOrganRequest(safeUserMessage)) {
-    return getIllegalOrganRefusalByLanguage(languageCode);
-  }
-  if (isLegalHelpFollowupAfterIllegalOrgan({ message: safeUserMessage, history })) {
-    return getLegalTransplantGuidanceByLanguage(languageCode);
-  }
-  const previousAssistantMessage = getLastAssistantMessageFromHistory(history);
-
-  if (naturalMode) {
-    if (hasBoilerplateTemplate(safeResponse)) {
-      return getNaturalRecoveryReplyByLanguage(languageCode, safeUserMessage);
-    }
-    if (
-      previousAssistantMessage &&
-      isCrossTurnDuplicateResponse(safeResponse, previousAssistantMessage)
-    ) {
-      return getNaturalRecoveryReplyByLanguage(languageCode, safeUserMessage);
-    }
-    return safeResponse;
-  }
-
-  if (hasBoilerplateTemplate(safeResponse)) {
-    return getDirectNoTemplateReplyByLanguage(languageCode, safeUserMessage);
-  }
-
-  if (!previousAssistantMessage) {
-    return safeResponse;
-  }
-
-  if (hasBoilerplateTemplate(safeResponse) && hasBoilerplateTemplate(previousAssistantMessage)) {
-    return getDirectNoTemplateReplyByLanguage(languageCode, safeUserMessage);
-  }
-
-  if (!isCrossTurnDuplicateResponse(safeResponse, previousAssistantMessage)) {
-    return safeResponse;
-  }
-
-  return getNonRepeatingFallbackByLanguage(languageCode);
+  return response; // Return the model response directly to avoid discarding valid responses
 };
 
 type MessageMode = 'short' | 'normal' | 'long' | 'argument';
@@ -1267,37 +1220,28 @@ Do not mention you are an AI system.
 
 Mandatory rules:
 1. Respond only in: ${resolvedLanguage}.
-2. If Search Mode is enabled, prioritize WEB SEARCH RESULTS and set sourceFile to "none".
-3. If a relevant answer is found in KNOWLEDGE BASE, set sourceFile to the exact filename.
-4. If no file is clearly relevant, set sourceFile to "none".
-5. Keep response readable with markdown (**bold**, lists, fenced code blocks).
-6. Keep tone warm, helpful, and in-character.
-7. Return valid JSON only with keys: sourceFile, response.
-8. Use PREVIOUS CHATS and USER ACTIVITY context when relevant, but never invent missing facts.
-9. Strictly obey SELECTED PERSONA INSTRUCTIONS and maintain role consistency.
-10. If role gender is female, never switch to masculine self-reference.
-11. If role gender is male, use male tone only for that selected role.
-12. Do not mix behavior from unrelated personas.
-13. Never duplicate lines/sentences in the same response.
-14. Keep response formatting polished and scannable.
-15. Never say you are AI, chatbot, model, virtual assistant, or non-human.
-16. Always respond like a real human companion in the selected persona.
-17. For any code answer, format code cleanly with proper indentation and line breaks.
-18. Never place multi-line code inside plain paragraph text.
-19. Never repeat the previous assistant reply across turns.
-20. Do not restart with intro text like "Main Ana hoon" after the first turn.
-21. Always answer the latest user message directly.
-22. Never use boilerplate support lines such as "aapke paas koi specific problem hai..." repeatedly.
+2. Keep response readable with markdown (**bold**, lists, fenced code blocks).
+3. Keep tone warm, helpful, and in-character.
+4. Use PREVIOUS CHATS and USER ACTIVITY context when relevant, but never invent missing facts.
+5. Strictly obey SELECTED PERSONA INSTRUCTIONS and maintain role consistency.
+6. If role gender is female, never switch to masculine self-reference.
+7. If role gender is male, use male tone only for that selected role.
+8. Do not mix behavior from unrelated personas.
+9. Never duplicate lines/sentences in the same response.
+10. Keep response formatting polished and scannable.
+11. Never say you are AI, chatbot, model, virtual assistant, or non-human.
+12. Always respond like a real human companion in the selected persona.
+13. For any code answer, format code cleanly with proper indentation and line breaks.
+14. Never place multi-line code inside plain paragraph text.
+15. Never repeat the previous assistant reply across turns.
+16. Do not restart with intro text like "Main Ana hoon" after the first turn.
+17. Always answer the latest user message directly.
+18. Never use boilerplate support lines such as "aapke paas koi specific problem hai..." repeatedly.
 
 RESPONSE FORMAT CONTRACT:
 - If task is simple: answer in 2-5 lines, direct and clear.
 - If task is instructional: use numbered steps.
 - If task is technical: include a short "Fix" section and code block when needed.
-- Every code sample must be in fenced markdown with language tag (for example: \`\`\`python ... \`\`\`).
-- Keep prose and code separate; no mixed paragraph-style code.
-- If task is health/emotional: include caution and next best action.
-- Use markdown headings/bullets only when they improve clarity.
-- Do not output repetitive fillers.
 
 MESSAGE STYLE INSTRUCTION:
 ${messageStyleInstruction}
@@ -1345,6 +1289,25 @@ New User Message:
 "${safeMessage}"
 `;
 
+    const jsonPrompt = `
+MANDATORY FORMAT CONTRACT:
+- You MUST return a valid JSON object ONLY, with exactly two keys: "sourceFile" and "response".
+- Do not add markdown fences outside the JSON object or any explanation text.
+- If a relevant answer is found in KNOWLEDGE BASE, set sourceFile to the exact filename. If no file is clearly relevant or Search Mode is active, set sourceFile to "none".
+- The "response" field must contain your actual answer text to the user.
+
+---
+
+${prompt}`;
+
+    const textPrompt = `
+MANDATORY FORMAT CONTRACT:
+- Reply to the user directly as plain text. Do NOT wrap your response in JSON. Do NOT output JSON format.
+
+---
+
+${prompt}`;
+
     try {
       const output = await anaGenerateJson({
         schema: GenResponseSchema,
@@ -1358,10 +1321,10 @@ New User Message:
             role: 'user', 
             content: images && images.length > 0 
               ? [
-                  { type: 'text', text: prompt },
+                  { type: 'text', text: jsonPrompt },
                   ...images.map(img => ({ type: 'image_url', image_url: { url: img } }))
                 ]
-              : prompt 
+              : jsonPrompt 
           },
         ],
         temperature: 0.35,
@@ -1394,10 +1357,10 @@ New User Message:
             role: 'user', 
             content: images && images.length > 0 
               ? [
-                  { type: 'text', text: prompt },
+                  { type: 'text', text: textPrompt },
                   ...images.map(img => ({ type: 'image_url', image_url: { url: img } }))
                 ]
-              : prompt 
+              : textPrompt 
           },
         ],
         temperature: 0.35,
